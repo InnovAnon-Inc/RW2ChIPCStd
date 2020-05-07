@@ -11,7 +11,7 @@ typedef struct {
    void *restrict cargs;
 } cargs_t;
  
-__attribute__ ((warn_unused_result))
+__attribute__ ((nonnull (3), warn_unused_result))
 static int mychildcb (fd_t rd, fd_t wr, void *restrict args) {
    cargs_t *restrict cargs      = args;
    childcb_t         childcb    = cargs->childcb;
