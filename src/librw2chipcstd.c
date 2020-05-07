@@ -41,30 +41,8 @@ static int mychildcb (fd_t rd, fd_t wr, void *restrict args) {
    err |= r_close (wr);
    error_check (err != 0) { return err; }
  
-   /*execv (argv[0], argv);
-   return -1;*/
    return childcb (child_args);
 }
-
-/*
-__attribute__ ((warn_unused_result))
-static int myparentcb (pid_t cpid, fd_t rd, fd_t wr, void *restrict args) {
-   char buffer[100];
-   int count;
- 
-   /* Write to child’s stdin * /
-   write (wr, "2^32\n", 5);
- 
-   /* Read from child’s stdout * /
-   count = read (rd, buffer, sizeof (buffer) - 1);
-   if (count >= 0) {
-   buffer[count] = 0;
-   printf("%s", buffer);
-   } else {
-   printf("IO Error\n");
-   }
-}
-*/
 
 __attribute__ ((nonnull (1, 3), warn_unused_result))
 int rw2chipcstd (childcb_t childcb, void *restrict cargs, rwparentcb_t parentcb, void *restrict pargs) {
