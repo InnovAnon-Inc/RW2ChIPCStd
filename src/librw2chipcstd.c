@@ -18,7 +18,7 @@ static int mychildcb (fd_t rd, fd_t wr, void *restrict args) {
    void    *restrict child_args = cargs->cargs;
    int err;
 
-   error_check (r_dup2 (rd,  STDIN_FILENO ) == -1) {
+   error_check (r_dup2 (rd, STDIN_FILENO ) == -1) {
 	#pragma GCC diagnostic push
 	#pragma GCC diagnostic ignored "-Wunused-result"
       r_close (rd);
