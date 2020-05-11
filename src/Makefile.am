@@ -5,7 +5,8 @@ AM_CPPFLAGS = -D__STDC_INT64__
 #AM_CPPFLAGS += -I $(top_srcdir)/glitter/src
 #endif
 
-include Makefile-LIBADD.inc
+#include Makefile-LIBADD.inc
+dist_bin_SCRIPTS = librw2chipcstd_config
 
 lib_LTLIBRARIES = librw2chipcstd.la
 include_HEADERS = rw2chipcstd.h
